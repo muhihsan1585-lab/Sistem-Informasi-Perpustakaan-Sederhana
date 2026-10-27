@@ -1,66 +1,154 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Sistem Informasi Perpustakaan Sederhana
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+## Deskripsi Project
 
-## About Laravel
+Sistem Informasi Perpustakaan Sederhana merupakan aplikasi berbasis web yang dikembangkan menggunakan Laravel untuk membantu proses pengelolaan data perpustakaan. Project ini dibuat sebagai tugas akhir mata kuliah dengan menerapkan konsep pengembangan aplikasi web menggunakan framework Laravel.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Aplikasi ini dirancang untuk membantu admin dan petugas dalam mengelola data buku, kategori, anggota, pengguna, serta transaksi peminjaman dan pengembalian buku.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Tujuan
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+Tujuan pengembangan project ini adalah:
+- Memahami struktur project Laravel.
+- Menerapkan konsep Model-View-Controller (MVC).
+- Menghubungkan aplikasi dengan database MySQL.
+- Memahami penggunaan Git dan GitHub untuk pengelolaan source code.
+- Mengembangkan aplikasi perpustakaan secara bertahap sesuai checkpoint perkuliahan.
 
-## Learning Laravel
+## Teknologi yang Digunakan
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+- **Bahasa Pemrograman:** PHP
+- **Framework:** Laravel 12
+- **Database:** MySQL
+- **Web Server Lokal:** XAMPP
+- **Dependency Manager:** Composer
+- **Code Editor:** Visual Studio Code
+- **Version Control:** Git
+- **Repository:** GitHub
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+## Fitur Sistem
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+Fitur yang direncanakan dalam pengembangan aplikasi meliputi:
 
-## Laravel Sponsors
+1. Authentication (login dan logout).
+2. Pengelolaan pengguna dan role.
+3. Pengelolaan kategori buku.
+4. Pengelolaan data buku.
+5. Pengelolaan data anggota perpustakaan.
+6. Transaksi peminjaman dan pengembalian buku.
+7. Dashboard informasi perpustakaan.
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+Fitur-fitur tersebut akan dikembangkan secara bertahap sesuai dengan checkpoint tugas akhir.
 
-### Premium Partners
+## Persyaratan Sistem
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+Sebelum menjalankan project, pastikan perangkat sudah memiliki:
+- PHP 8.2 atau versi yang kompatibel dengan Laravel 12.
+- Composer.
+- MySQL atau MariaDB.
+- Git.
+- Web browser.
 
-## Contributing
+## Instalasi dan Menjalankan Project
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+### 1. Clone Repository
 
-## Code of Conduct
+Unduh source code dari repository GitHub: https://github.com/muhihsan1585-lab/Sistem-Informasi-Perpustakaan-Sederhana.git
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+```bash
+git clone URL_REPOSITORY_KAMU
+```
 
-## Security Vulnerabilities
+Masuk ke folder project:
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+```bash
+cd Sistem-Informasi-Perpustakaan-Sederhana
+```
 
-## License
+### 2. Instal Dependency
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+Jalankan perintah berikut untuk memasang dependency Laravel:
+
+```bash
+composer install
+```
+
+### 3. Konfigurasi Environment
+
+Salin file `.env.example` menjadi `.env`:
+
+```bash
+copy .env.example .env
+```
+
+Buat application key:
+
+```bash
+php artisan key:generate
+```
+
+### 4. Konfigurasi Database
+
+Buat database baru melalui phpMyAdmin atau MySQL dengan nama:
+
+`library_system`
+
+Sesuaikan konfigurasi database pada file `.env`:
+
+```dotenv
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=library_system
+DB_USERNAME=root
+DB_PASSWORD=
+```
+
+Sesuaikan username dan password dengan konfigurasi MySQL pada perangkat masing-masing.
+
+### 5. Menjalankan Aplikasi
+
+Jalankan server pengembangan Laravel:
+
+```bash
+php artisan serve
+```
+
+Buka browser dan akses:
+
+`http://127.0.0.1:8000`
+
+## Struktur Project
+
+Beberapa folder dan file utama yang digunakan:
+
+- `app/` — menyimpan model dan controller aplikasi.
+- `bootstrap/` — konfigurasi awal aplikasi Laravel.
+- `config/` — menyimpan konfigurasi aplikasi.
+- `database/` — menyimpan migration dan seeder.
+- `resources/views/` — menyimpan tampilan aplikasi.
+- `routes/web.php` — mendefinisikan route web.
+- `public/` — menyimpan file publik aplikasi.
+- `.env` — konfigurasi lingkungan aplikasi.
+- `README.md` — dokumentasi project.
+
+## Identitas Kelompok
+
+- Nama Project: Sistem Informasi Perpustakaan Sederhana
+- Nama Anggota 1: [BIBIT ARYO UTOMO]
+- NIM: [NIM]
+- Nama Anggota 2: [MUHAMMAD IHSAN]
+- NIM: [2410631250018]
+- Nama Anggota 3: [ROSHAN ALVARO PUTRA GUNAWAN]
+- NIM: [NIM]
+
+## Repository GitHub
+
+Link Repository: https://github.com/muhihsan1585-lab/Sistem-Informasi-Perpustakaan-Sederhana.git
+
+## Author
+
+Dikembangkan oleh mahasiswa sebagai bagian dari tugas akhir mata kuliah pengembangan aplikasi web menggunakan Laravel.
+- Nama Anggota 1: [BIBIT ARYO UTOMO]
+- Nama Anggota 2: [MUHAMMAD IHSAN]
+- Nama Anggota 3: [ROSHAN ALVARO PUTRA GUNAWAN]
