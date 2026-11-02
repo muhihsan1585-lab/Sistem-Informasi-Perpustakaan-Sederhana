@@ -9,18 +9,20 @@ Route::middleware('guest')->group(function () {
 });
 
 Route::post('/logout', [AuthController::class, 'logout'])
-    ->middleware('auth')->name('logout');
+    ->middleware('auth')
+    ->name('logout');
 
 Route::middleware('auth')->group(function () {
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
 
-    Route::middleware('role:admin')->prefix('admin')->group(function () {
-        // Route khusus Admin
+    Route::middleware('role:admin')->prefix('admin')->name('admin.')->group(function () {
+        Route::get('/dashboard', function () {
+            return view('admin.dashboard');
+        })->name('dashboard');
     });
 
-    Route::middleware('role:petugas')->prefix('petugas')->group(function () {
-        // Route khusus Petugas
+    Route::middleware('role:petugas')->prefix('petugas')->name('petugas.')->group(function () {
+        Route::get('/dashboard', function () {
+            return view('petugas.dashboard');
+        })->name('dashboard');
     });
 });
