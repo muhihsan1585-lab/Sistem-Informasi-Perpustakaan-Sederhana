@@ -11,17 +11,19 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('categories', function (Blueprint $table) {
+        Schema::create('borrowing_details', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('borrowing_id')->constrained()->cascadeOnDelete();
+            $table->foreignId('book_id')->constrained()->restrictOnDelete();
             $table->timestamps();
         });
-    }
+    }   
 
     /**
      * Reverse the migrations.
      */
     public function down(): void
     {
-        Schema::dropIfExists('categories');
+        Schema::dropIfExists('borrowing_details');
     }
 };

@@ -16,4 +16,10 @@ class Member extends Model
         'phone',
         'address',
     ];
+    protected $fillable = ['member_code', 'name', 'phone', 'address'];
+
+    public function borrowings()
+    {
+        return $this->hasMany(Borrowing::class);
+    }
 }
