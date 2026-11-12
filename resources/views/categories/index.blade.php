@@ -8,7 +8,11 @@
         <h2 class="page-title">Data Kategori</h2>
         <p class="page-description">Kelola kategori buku perpustakaan.</p>
     </div>
-    <a href="{{ route('categories.create') }}" class="btn-primary">+ Tambah Kategori</a>
+    @if (Auth::user()->role === 'admin')
+    <a href="{{ route('categories.create') }}" class="btn-primary">
+        Tambah Kategori
+    </a>
+    @endif
 </div>
 
 @if(session('success'))
@@ -36,11 +40,20 @@
                 <td>{{ $category->name }}</td>
                 <td>{{ $category->description ?? '-' }}</td>
                 <td class="action-buttons">
-                    <a href="{{ route('categories.edit', $category->id) }}" class="btn-edit">Edit</a>
-                    <form action="{{ route('categories.destroy', $category->id) }}" method="POST" onsubmit="return confirm('Yakin ingin menghapus kategori ini?')">
+                    @if (Auth::user()->role === 'admin')
+                    <a href="{{ route('categories.edit', $category->id) }}" class="btn-edit">
+                        Edit
+                    </a>
+
+                    <form action="{{ route('categories.destroy', $category->id) }}" method="POST">
                         @csrf
                         @method('DELETE')
-                        <button type="submit" class="btn-delete">Hapus</button>
+                        <button type="submit" class="btn-delete"
+                            onclick="return confirm('Yakin ingin menghapus kategori ini?')">
+                            Hapus
+                        </button>
+                    </form>
+                    @endif
                     </form>
                 </td>
             </tr>

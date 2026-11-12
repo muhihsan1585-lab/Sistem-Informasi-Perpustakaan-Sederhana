@@ -27,8 +27,20 @@ Route::middleware(['auth', 'role:petugas'])->prefix('petugas')->name('petugas.')
     })->name('dashboard');
 });
 
+// Admin dan Petugas: bisa melihat kategori
+Route::middleware(['auth', 'role:admin,petugas'])->group(function () {
+    Route::get('/categories', [CategoryController::class, 'index'])
+        ->name('categories.index');
+});
+
+// Admin: bisa mengelola kategori
+Route::middleware(['auth', 'role:admin'])->group(function () {
+    Route::resource('categories', CategoryController::class)
+        ->except(['index']);
+});
+
+// Admin dan Petugas: bisa mengelola buku dan anggota
 Route::middleware(['auth', 'role:admin,petugas'])->group(function () {
     Route::resource('members', MemberController::class);
     Route::resource('books', BookController::class);
-    Route::resource('categories', CategoryController::class);
 });
