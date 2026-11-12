@@ -9,13 +9,20 @@ use Symfony\Component\HttpFoundation\Response;
 
 class RoleMiddleware
 {
-    public function handle(Request $request, Closure $next, string $role): Response
+    public function handle(Request $request, Closure $next, string ...$roles): Response
     {
         if (!Auth::check()) {
             return redirect()->route('login');
         }
 
-        if (Auth::user()->role !== $role) {
+        $userRole = strtolower(trim(Auth::user()->role));
+
+        $allowedRoles = array_map(
+            fn($role) => strtolower(trim($role)),
+            $roles
+        );
+
+        if (!in_array($userRole, $allowedRoles, true)) {
             abort(403, 'Anda tidak memiliki akses.');
         }
 

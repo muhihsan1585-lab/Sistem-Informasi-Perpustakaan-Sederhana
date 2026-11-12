@@ -15,23 +15,19 @@ Route::post('/logout', [AuthController::class, 'logout'])
     ->middleware('auth')
     ->name('logout');
 
-Route::middleware('auth')->group(function () {
-
-    Route::middleware('role:admin')->prefix('admin')->name('admin.')->group(function () {
-        Route::get('/dashboard', function () {
-            return view('admin.dashboard');
-        })->name('dashboard');
-    });
-
-    Route::middleware('role:petugas')->prefix('petugas')->name('petugas.')->group(function () {
-        Route::get('/dashboard', function () {
-            return view('petugas.dashboard');
-        })->name('dashboard');
-    });
+Route::middleware(['auth', 'role:admin'])->prefix('admin')->name('admin.')->group(function () {
+    Route::get('/dashboard', function () {
+        return view('admin.dashboard');
+    })->name('dashboard');
 });
 
-// Route yang wajib login (Protected Routes)
-Route::middleware(['auth'])->group(function () {
+Route::middleware(['auth', 'role:petugas'])->prefix('petugas')->name('petugas.')->group(function () {
+    Route::get('/dashboard', function () {
+        return view('petugas.dashboard');
+    })->name('dashboard');
+});
+
+Route::middleware(['auth', 'role:admin,petugas'])->group(function () {
     Route::resource('members', MemberController::class);
     Route::resource('books', BookController::class);
     Route::resource('categories', CategoryController::class);
