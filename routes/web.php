@@ -6,6 +6,7 @@ use App\Http\Controllers\MemberController;
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\BorrowingController;
 
 Route::middleware('guest')->group(function () {
     Route::get('/login', [AuthController::class, 'showLogin'])->name('login');
@@ -50,3 +51,24 @@ Route::middleware(['auth', 'role:admin,petugas'])->group(function () {
 Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::resource('users', UserController::class)->except(['show']);
 });
+
+
+// Admin dan Petugas: mengelola peminjaman
+Route::middleware(['auth', 'role:admin,petugas'])
+    ->group(function () {
+
+        Route::get('/borrowings', [BorrowingController::class, 'index'])
+            ->name('borrowings.index');
+
+        Route::get('/borrowings/create', [BorrowingController::class, 'create'])
+            ->name('borrowings.create');
+
+        Route::post('/borrowings', [BorrowingController::class, 'store'])
+            ->name('borrowings.store');
+
+        Route::get('/borrowings/{borrowing}', [BorrowingController::class, 'show'])
+            ->name('borrowings.show');
+
+        Route::patch('/borrowings/{borrowing}/return', [BorrowingController::class, 'returnBook'])
+            ->name('borrowings.return');
+    });
