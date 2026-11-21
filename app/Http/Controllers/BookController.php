@@ -8,11 +8,21 @@ use Illuminate\Http\Request;
 
 class BookController extends Controller
 {
+
     public function index()
     {
-        $books = Book::with('category')->latest()->paginate(10);
+        $books = Book::with('category')
+            ->withCount([
+                'borrowings as borrowed_count' => function ($query) {
+                    $query->where('borrowings.status', 'borrowed');
+                }
+            ])
+            ->latest()
+            ->paginate(10);
+
         return view('books.index', compact('books'));
     }
+
 
     public function create()
     {
