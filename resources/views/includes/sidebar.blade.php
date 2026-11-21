@@ -12,7 +12,7 @@
     </a>
     <div class="menu-link">Data Anggota</div>
     <div class="menu-link">Peminjaman</div>
-    <div class="menu-link">Manajemen Pengguna</div>
+    <a href="{{ route('users.index') }}" class="menu-link">Manajemen Pengguna</a>
     @else
     <a href="{{ route('petugas.dashboard') }}" class="menu-link">Dashboard</a>
     <a href="{{ route('categories.index') }}" class="menu-link">

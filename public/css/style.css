@@ -255,3 +255,28 @@ body {
     background: white;
     font-family: Arial, sans-serif;
 }
+
+.badge {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.badge-admin {
+    background: #eee5fa;
+    color: #572797;
+}
+
+.badge-petugas {
+    background: #dcfce7;
+    color: #166534;
+}
+
+.form-hint {
+    color: #888;
+    display: block;
+    margin-top: 5px;
+    font-size: 12px;
+}

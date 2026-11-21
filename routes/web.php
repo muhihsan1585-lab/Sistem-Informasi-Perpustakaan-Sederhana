@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MemberController;
 use App\Http\Controllers\BookController;
@@ -43,4 +44,9 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
 Route::middleware(['auth', 'role:admin,petugas'])->group(function () {
     Route::resource('members', MemberController::class);
     Route::resource('books', BookController::class);
+});
+
+// Admin: manajemen user
+Route::middleware(['auth', 'role:admin'])->group(function () {
+    Route::resource('users', UserController::class)->except(['show']);
 });
