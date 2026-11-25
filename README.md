@@ -136,7 +136,7 @@ Beberapa folder dan file utama yang digunakan:
 
 - Nama Project: Sistem Informasi Perpustakaan Sederhana
 - Nama Anggota 1: [BIBIT ARYO UTOMO]
-- NIM: [NIM]
+- NIM: [2410631250087]
 - Nama Anggota 2: [MUHAMMAD IHSAN]
 - NIM: [2410631250018]
 - Nama Anggota 3: [ROSHAN ALVARO PUTRA GUNAWAN]
